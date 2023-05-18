@@ -1,33 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import { useEffect, useState } from 'react'
 import './App.css'
+import axios from 'axios';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+const [data, setData] = useState([])
+const URL ="https://jsonplaceholder.typicode.com/users"
+
+const options = {
+  method: 'GET',
+  url: URL,
+}
+
+const axiosData = async() => {
+await axios(options).then(responce => setData( responce.data))
+setTimeout(()=>{
+  console.log("in fun",data)
+},2000)
+}
+
+useEffect(()=> {
+  (async()=>{
+    await axiosData()
+  })()
+  console.log("in init",data)
+},[])
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {data.map((obj)=>{
+       return <li key={obj.id}>{obj.name}</li>
+      })}
     </>
   )
 }
