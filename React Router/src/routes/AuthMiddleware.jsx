@@ -1,6 +1,5 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router";
-import { PublicRoutes, PrivateRoutes } from "./index";
+
 
 const USER_TYPE = {
   PUBLIC: "Public User",
@@ -22,14 +21,7 @@ const AuthMiddleware = (props) => {
 
   return (
     <>
-      <Routes>
-        {PrivateRoutes.map((route, i) => {
-          return <Route key={i} path={route.path} element={route.element} />;
-        })}
-        {PublicRoutes.map((route, i) => {
-          return <Route key={i} path={route.path} element={route.element} />;
-        })}
-      </Routes>
+      
       app
     </>
   );

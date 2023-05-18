@@ -22,17 +22,11 @@ const FetchApis = () => {
     })();
     console.log("in init", data);
   }, []);
-
-
-  return (
-    <>
-      {/* {data.map((obj) => {
-        return <li key={obj.id}>{obj.name}</li>;
-      })} */}
-      {data}
-      
-    </>
-  );
+   
+  return data
 };
 
 export default FetchApis;
+/* {data.map((obj) => {
+        return <li key={obj.id}>{obj.name}</li>;
+      })} */

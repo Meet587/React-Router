@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import { useLocation, useNavigate } from "react-router";
 
 const Login = () => {
-  return (
-    <div>Login</div>
-  )
-}
+  const navigate = useNavigate();
+  const location = useLocation();
 
-export default Login
+  const from = location.state?.from?.pathname || "/";
+
+  const handleSubmit = () => {
+    navigate(from, { replace: true });
+  };
+  return <div>Login</div>;
+};
+
+export default Login;

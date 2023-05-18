@@ -1,7 +1,7 @@
 import React from 'react'
 
 const useAuth = () => {
-    const isAuth = JSON.stringify(localStorage.getItem("isAuth"))
+    const isAuth = JSON.parse(localStorage.getItem("isAuth"))
   return isAuth
 }
 
