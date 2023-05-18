@@ -6,11 +6,11 @@ import Register from "../Pages/Public Pages/Register/Register"
 // ---------------- Private Routing -------------
 import Dashbord from "../Pages/Dashbord"
 
-const PublicRoutes =[
+export const PublicRoutes =[
     {path:'/login', element:<Login />},
     {path: '/register', element: <Register />}
 ]
 
-const PrivateRouthing = [
+export const PrivateRoutes = [
     {path: '/dashbord', element: <Dashbord />}
 ]
